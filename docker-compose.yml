@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+  postgresql:
+    image: postgres:12.7-alpine
+    container_name: postgresql
+    hostname: postgresql
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      # - ALLOW_EMPTY_PASSWORD=yes
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_MULTIPLE_DATABASES=warehouse,orders
+    command: postgres -c 'max_connections=250'
+    volumes:
+      - 'postgres_data:/bitnami/postgres'
+      - ./docker-postgresql-multiple-databases:/docker-entrypoint-initdb.d
+
+
+  warehouse:
+    image: lebedev/warehouse
+    container_name: warehouse
+    ports:
+      - "8091:8091"
+    depends_on:
+      - postgresql
+    links:
+      - "postgresql:postgresql"
+    environment:
+      - DB_USER=warehouse
+      - DB_PASSWORD=warehouse
+
+  order:
+    image: lebedev/orders
+    container_name: orders
+    ports:
+      - "8092:8092"
+    depends_on:
+      - postgresql
+    links:
+      - "postgresql:postgresql"
+    environment:
+      - DB_USER=orders
+      - DB_PASSWORD=orders
+      - WAREHOUSE_SERVICE_BASE_URL=http://warehouse:8091
+
+volumes:
+  postgres_data:
+    driver: local
+  cache:
+    driver: local

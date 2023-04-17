@@ -9,6 +9,9 @@ public class Product {
     private String description;
     private Integer amount = 0;
 
+    public Product() {
+    }
+
     public Product(long productId, String name, String descr, Integer amount) {
         this.productId = productId;
         this.name = name;

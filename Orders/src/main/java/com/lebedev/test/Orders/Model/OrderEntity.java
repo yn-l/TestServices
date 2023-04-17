@@ -83,9 +83,9 @@ public class OrderEntity {
                 .filter(entry -> entry.getKey()!=null && entry.getValue()!=null && entry.getKey()>0 && entry.getValue() > 0)
                 .map(entry -> {
                     var ope = new OrderProductsEntity();
-                    ope.setProductId(entry).getKey());
+                    ope.setProductId(entry.getKey());
                     ope.setOrderId(ope.getOrderId());
-                    ope.setAmount(entry).getValue());
+                    ope.setAmount(entry.getValue());
                     return ope;
                 }).collect(Collectors.toSet());
 

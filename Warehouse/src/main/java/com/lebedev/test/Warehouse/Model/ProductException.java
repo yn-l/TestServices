@@ -6,8 +6,8 @@ import java.util.Map;
 
 public class ProductException extends Exception {
 
-    private final ProductErrorType error;
-    private final HttpStatus httpStatus;
+    private ProductErrorType error;
+    private HttpStatus httpStatus;
 
     public ProductException(ProductErrorType err, String msg) {
         super(msg);

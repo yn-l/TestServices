@@ -17,6 +17,7 @@ ext {
 	modelMapperVerson = "2.4.4"
 	postgresqlVersion = "42.2.10"
 	h2DBVersion = "2.1.214"
+	openApiUIVersion = "2.0.4"
 }
 
 dependencies {

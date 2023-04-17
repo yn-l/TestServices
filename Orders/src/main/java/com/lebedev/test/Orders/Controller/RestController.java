@@ -6,6 +6,7 @@ import com.lebedev.test.Orders.Service.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +25,8 @@ public class RestController {
             consumes = {MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE}
     )
-    public Map<String, Long> saveOrder(@RequestBody Order order) throws Exception {
+    @ResponseStatus(HttpStatus.CREATED)
+    public Map<String, Long> saveOrder(@RequestBody Order order) throws OrderException {
         String method = this.getClass().getName() + "." + Thread.currentThread().getStackTrace()[1].getMethodName();
         logger.info("Start " + method);
         Long newId = orderService.createOrder(order);

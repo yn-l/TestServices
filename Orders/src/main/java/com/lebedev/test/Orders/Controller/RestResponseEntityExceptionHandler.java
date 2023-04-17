@@ -7,8 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import java.util.Map;
 
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler
@@ -28,7 +31,12 @@ public class RestResponseEntityExceptionHandler
                 new HttpHeaders(), ex.getHttpStatus(), request);
     }
 
-    //HttpClientErrorException$Conflict
+    @ExceptionHandler(value = { ResourceAccessException.class})
+    protected ResponseEntity<Object> handleConnectException(ResourceAccessException ex, WebRequest request) {
+        Map<String, Map<String, String>> bodyOfResponse = Map.of("error", Map.of("message", ex.getMessage()));
+        return handleExceptionInternal(ex, bodyOfResponse,
+                new HttpHeaders(), HttpStatus.FORBIDDEN, request);
+    }
     @ExceptionHandler(value = {HttpClientErrorException.class})
     protected ResponseEntity<Object> handleProductException(HttpClientErrorException ex, WebRequest request) {
         String bodyOfResponse = ex.getMessage();

@@ -1,4 +1,4 @@
-# Warehouse Service
+# Orders Service
 
 ## Setup
 

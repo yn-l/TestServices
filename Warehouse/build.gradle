@@ -13,8 +13,9 @@ sourceCompatibility = '17'
 
 ext {
 	modelMapperVerson = "2.4.4"
-	postgresqlVersion = "42.2.10"
+	postgresqlVersion = "42.2.27"
 	h2DBVersion = "2.1.214"
+	openApiUIVersion = "2.0.4"
 }
 repositories {
 	mavenCentral()
@@ -26,6 +27,9 @@ dependencies {
 	implementation 'org.liquibase:liquibase-core'
 	implementation "org.modelmapper:modelmapper:$modelMapperVerson"
 	testImplementation 'junit:junit:4.13.1'
+
+	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:$openApiUIVersion"
+	implementation group: 'org.hibernate.validator', name: 'hibernate-validator'
 
 	runtimeOnly("org.postgresql:postgresql:$postgresqlVersion")
 	testImplementation "com.h2database:h2:$h2DBVersion"

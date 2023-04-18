@@ -14,4 +14,9 @@ to create docker image it shoudl be run:
 
 `./gradlew jibDockerBuild`
 
+## Open API
 
+The Swagger UI page will then be available at <http://localhost:8091/swagger-ui.html>
+
+The OpenAPI description will be available at the following url for json format:
+<http://localhost:8091/v3/api-docs>

@@ -10,6 +10,7 @@ Note: please correct value of env variable if you create DB manually
     If you do it by docker-compose attached to service the db user and password will be created by script.
 
 ## Create image
+
 to create docker image it shoudl be run:
 
 `./gradlew jibDockerBuild`
@@ -20,3 +21,8 @@ The Swagger UI page will then be available at <http://localhost:8091/swagger-ui.
 
 The OpenAPI description will be available at the following url for json format:
 <http://localhost:8091/v3/api-docs>
+
+## Actuator
+
+It was enabled actuator of the service. All actuator endpoints enabled and can be accessed.
+

@@ -17,6 +17,7 @@ ext {
 	h2DBVersion = "2.1.214"
 	openApiUIVersion = "2.1.0"
 	junitVersion = "4.13.1"
+	hibernateValidatorVersion = "8.0.0.Final"
 }
 repositories {
 	mavenCentral()
@@ -30,7 +31,9 @@ dependencies {
 	testImplementation "junit:junit:$junitVersion"
 
 	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:$openApiUIVersion"
-	implementation group: 'org.hibernate.validator', name: 'hibernate-validator'
+	implementation "org.hibernate.validator:hibernate-validator:$hibernateValidatorVersion"
+
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 	runtimeOnly("org.postgresql:postgresql:$postgresqlVersion")
 	testImplementation "com.h2database:h2:$h2DBVersion"
@@ -43,7 +46,7 @@ tasks.named('test') {
 
  jib {
 	var versionTag = new ArrayList<String>()
-	versionTag.add(project.version)
+	versionTag.add(project.version.toString())
 	versionTag.add("latest")
 	println project.version
 	to {

@@ -5,6 +5,7 @@ import com.lebedev.test.warehouse.model.ProductException;
 import com.lebedev.test.warehouse.model.ProductStockUpdate;
 import com.lebedev.test.warehouse.service.ProductService;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springdoc.core.annotations.RouterOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

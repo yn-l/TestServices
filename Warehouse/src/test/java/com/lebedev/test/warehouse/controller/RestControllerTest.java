@@ -1,7 +1,7 @@
-package com.lebedev.test.Warehouse.Controller;
+package com.lebedev.test.warehouse.controller;
 
-import com.lebedev.test.Warehouse.Model.Product;
-import com.lebedev.test.Warehouse.Service.ProductService;
+import com.lebedev.test.warehouse.Model.Product;
+import com.lebedev.test.warehouse.service.ProductService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

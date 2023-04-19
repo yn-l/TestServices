@@ -1,6 +1,6 @@
-package com.lebedev.test.Warehouse.Controller;
+package com.lebedev.test.warehouse.controller;
 
-import com.lebedev.test.Warehouse.Model.ProductException;
+import com.lebedev.test.warehouse.Model.ProductException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
-package com.lebedev.test.Warehouse.Service;
+package com.lebedev.test.warehouse.service;
 
-import com.lebedev.test.Warehouse.Model.*;
-import com.lebedev.test.Warehouse.Repository.WarehouseRepository;
+import com.lebedev.test.warehouse.Model.*;
+import com.lebedev.test.warehouse.Repository.WarehouseRepository;
 import jakarta.persistence.LockModeType;
 import jakarta.transaction.Transactional;
 import org.hibernate.exception.ConstraintViolationException;
@@ -28,9 +28,8 @@ public class ProductService {
     /**
      * Add product in to DB
      *
-     * @param model @{@link Product} new product to store in DB
-     * @return - @{@link Long} id of saved product
-     * @throws @{@link ProductException}
+     * @param model {@link Product} new product to store in DB
+     * @return - {@link Long} id of saved product
      */
     public Long save(Product model) throws ProductException {
         try {
@@ -72,9 +71,8 @@ public class ProductService {
     /**
      * Update anount of products in warehouse
      *
-     * @param productUpdateList - list of @{@link ProductStockUpdate}
-     * @return @List<{@link Product>} list of updated products
-     * @throws @{@link ProductException}
+     * @param productUpdateList - list of {@link ProductStockUpdate}
+     * @return - List of updated {@link Product}
      */
     @Transactional(rollbackOn = {SQLException.class, ProductException.class})
     @Lock(LockModeType.PESSIMISTIC_WRITE)

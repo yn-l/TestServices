@@ -1,4 +1,4 @@
-package com.lebedev.test.Warehouse;
+package com.lebedev.test.warehouse;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

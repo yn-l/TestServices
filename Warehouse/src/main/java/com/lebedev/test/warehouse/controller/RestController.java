@@ -1,11 +1,18 @@
-package com.lebedev.test.Warehouse.Controller;
+package com.lebedev.test.warehouse.controller;
 
-import com.lebedev.test.Warehouse.Model.Product;
-import com.lebedev.test.Warehouse.Model.ProductException;
-import com.lebedev.test.Warehouse.Model.ProductStockUpdate;
-import com.lebedev.test.Warehouse.Service.ProductService;
+import com.lebedev.test.warehouse.Model.Product;
+import com.lebedev.test.warehouse.Model.ProductException;
+import com.lebedev.test.warehouse.Model.ProductStockUpdate;
+import com.lebedev.test.warehouse.service.ProductService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.tomcat.util.json.ParseException;
+import org.springdoc.core.annotations.RouterOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -33,6 +40,9 @@ public class RestController {
     }
 
     @GetMapping("/warehouse/product/id/{id}")
+    @RouterOperation(operation = @Operation(description = "Get Product by Id", operationId = "getProductById", tags = "persons",
+            parameters = { @Parameter(in = ParameterIn.PATH, name = "id", description = "Product Id") },
+            responses = @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = Product.class)))))
     public Product getProductById(@PathVariable(name = "id", required = true) String id, HttpServletResponse res) throws ParseException {
 
         Product result = productService.getById(Long.valueOf(id));

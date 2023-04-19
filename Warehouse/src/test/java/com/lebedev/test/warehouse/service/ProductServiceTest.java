@@ -1,23 +1,18 @@
-package com.lebedev.test.Warehouse.Service;
+package com.lebedev.test.warehouse.service;
 
-import com.lebedev.test.Warehouse.Model.Product;
-import com.lebedev.test.Warehouse.Model.ProductEntity;
-import com.lebedev.test.Warehouse.Model.ProductException;
-import com.lebedev.test.Warehouse.Repository.WarehouseRepository;
+import com.lebedev.test.warehouse.Model.Product;
+import com.lebedev.test.warehouse.Model.ProductEntity;
+import com.lebedev.test.warehouse.Model.ProductException;
+import com.lebedev.test.warehouse.Repository.WarehouseRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 

@@ -1,4 +1,4 @@
-package com.lebedev.test.Warehouse.Model;
+package com.lebedev.test.warehouse.Model;
 
 /**
  * Contains changes for amount of productId that should be applied to warehouse

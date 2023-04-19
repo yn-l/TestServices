@@ -1,6 +1,6 @@
 package com.lebedev.test.warehouse.Repository;
 
-import com.lebedev.test.warehouse.Model.ProductEntity;
+import com.lebedev.test.warehouse.model.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

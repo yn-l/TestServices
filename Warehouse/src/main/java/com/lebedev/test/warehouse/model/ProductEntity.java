@@ -1,4 +1,4 @@
-package com.lebedev.test.warehouse.Model;
+package com.lebedev.test.warehouse.model;
 
 import jakarta.persistence.*;
 

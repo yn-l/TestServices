@@ -1,8 +1,8 @@
 package com.lebedev.test.warehouse.service;
 
-import com.lebedev.test.warehouse.Model.Product;
-import com.lebedev.test.warehouse.Model.ProductEntity;
-import com.lebedev.test.warehouse.Model.ProductException;
+import com.lebedev.test.warehouse.model.Product;
+import com.lebedev.test.warehouse.model.ProductEntity;
+import com.lebedev.test.warehouse.model.ProductException;
 import com.lebedev.test.warehouse.Repository.WarehouseRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

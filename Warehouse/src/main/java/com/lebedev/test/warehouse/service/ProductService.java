@@ -1,6 +1,6 @@
 package com.lebedev.test.warehouse.service;
 
-import com.lebedev.test.warehouse.Model.*;
+import com.lebedev.test.warehouse.model.*;
 import com.lebedev.test.warehouse.Repository.WarehouseRepository;
 import jakarta.persistence.LockModeType;
 import jakarta.transaction.Transactional;

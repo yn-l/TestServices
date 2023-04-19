@@ -1,6 +1,6 @@
 package com.lebedev.test.warehouse.controller;
 
-import com.lebedev.test.warehouse.Model.Product;
+import com.lebedev.test.warehouse.model.Product;
 import com.lebedev.test.warehouse.service.ProductService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(RestController.class)
+@WebMvcTest(ProductRestController.class)
 @ActiveProfiles("test")
 class RestControllerTest {
 

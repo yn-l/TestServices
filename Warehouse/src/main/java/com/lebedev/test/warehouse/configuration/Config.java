@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Config {
 
+    /**
+     * @return {@link ModelMapper} a ModelMapper
+     */
     @Bean
     ModelMapper getModelMapper() {
         return new ModelMapper();

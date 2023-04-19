@@ -1,4 +1,6 @@
-package com.lebedev.test.warehouse.Model;
+package com.lebedev.test.warehouse.model;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * Product class
@@ -32,6 +34,7 @@ public class Product {
     /**
      * @return product id
      */
+    @Schema(example = "2", description = "The product Id")
     public Long getProductId() {
         return productId;
     }
@@ -46,6 +49,7 @@ public class Product {
     /**
      * @return product name
      */
+    @Schema(example = "Test Thing", description = "The product name")
     public String getName() {
         return name;
     }
@@ -53,6 +57,7 @@ public class Product {
     /**
      * @return product description
      */
+    @Schema(example = "Same strange thing", description = "The product description")
     public String getDescription() {
         return description;
     }
@@ -74,6 +79,7 @@ public class Product {
     /**
      * @return amount of product
      */
+    @Schema(example = "4", description = "The amount of product")
     public Integer getAmount() {
         return amount;
     }

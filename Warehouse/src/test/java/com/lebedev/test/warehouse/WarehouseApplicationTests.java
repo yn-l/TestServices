@@ -1,6 +1,6 @@
 package com.lebedev.test.warehouse;
 
-import com.lebedev.test.warehouse.controller.RestController;
+import com.lebedev.test.warehouse.controller.ProductRestController;
 import com.lebedev.test.warehouse.Repository.WarehouseRepository;
 import com.lebedev.test.warehouse.service.ProductService;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ class WarehouseApplicationTests {
 	@Autowired
 	private ProductService productService;
 	@Autowired
-	private RestController controller;
+	private ProductRestController controller;
 
 	@Test
 	void contextLoads() {

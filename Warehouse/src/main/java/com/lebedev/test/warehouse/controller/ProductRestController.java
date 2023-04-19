@@ -5,7 +5,6 @@ import com.lebedev.test.warehouse.model.ProductException;
 import com.lebedev.test.warehouse.model.ProductStockUpdate;
 import com.lebedev.test.warehouse.service.ProductService;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springdoc.core.annotations.RouterOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +26,7 @@ public class ProductRestController implements ProductApi{
         return Map.of("productId", newId);
     }
 
-    public Product getProductById(@PathVariable(name = "id", required = true) String id, HttpServletResponse res) {
+    public Product getProductById(@PathVariable(name = "id") String id, HttpServletResponse res) {
 
         Product result = productService.getById(Long.valueOf(id));
         if (result != null)
@@ -38,7 +37,7 @@ public class ProductRestController implements ProductApi{
         }
     }
 
-    public Product getProductByName(@PathVariable(name = "name", required = true) String name, HttpServletResponse res) {
+    public Product getProductByName(@PathVariable(name = "name") String name, HttpServletResponse res) {
 
         Product result = productService.getByName(name);
         if (result != null)

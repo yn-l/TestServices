@@ -31,11 +31,11 @@ public class ProductService {
      * @param model {@link Product} new product to store in DB
      * @return - {@link Long} id of saved product
      */
-    public Long save(Product model) throws ProductException {
+    public Product save(Product model) throws ProductException {
         try {
             ProductEntity entity = modelMapper.map(model, ProductEntity.class);
             ProductEntity storedProduct = whRepository.save(entity);
-            return storedProduct.getProductId();
+            return modelMapper.map(storedProduct, Product.class);
         } catch (Exception se) {
             var msg = "Some unexpected erro occured";
             if (se.getCause() instanceof ConstraintViolationException &&
@@ -48,10 +48,7 @@ public class ProductService {
 
     public Product getById(Long id) {
         Optional<ProductEntity> entity = whRepository.findById(id);
-        if (entity.isPresent())
-            return modelMapper.map(entity.get(), Product.class);
-        else
-            return null;
+        return entity.map(productEntity -> modelMapper.map(productEntity, Product.class)).orElse(null);
     }
 
     public Product getByName(String name) {
@@ -84,7 +81,7 @@ public class ProductService {
             ProductEntity product = entity.orElseThrow(
                     () -> new ProductException(ProductErrorType.NOT_EXIST, "Product with id[" + productUpdate.getProductId() + "] not found in warehouse", HttpStatus.NOT_FOUND)
             );
-            Integer newAmount = product.getAmount() + productUpdate.getAmountUpdate();
+            int newAmount = product.getAmount() + productUpdate.getAmountUpdate();
             if (newAmount >= 0) {
                 product.setAmount(newAmount);
                 ProductEntity updatedEntity = whRepository.save(product);

@@ -11,19 +11,17 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Map;
 
 @org.springframework.web.bind.annotation.RestController
-@RequestMapping("/")
 public class ProductRestController implements ProductApi{
     @Autowired
     ProductService productService;
 
 
-    public Map<String, Long> saveProduct(@RequestBody Product product) throws ProductException {
-        Long newId = productService.save(product);
-        System.out.println("Created: " + product);
-        return Map.of("productId", newId);
+    public Product saveProduct(@RequestBody Product product) throws ProductException {
+        Product newPoduct = productService.save(product);
+        System.out.println("Created: " + newPoduct);
+        return newPoduct;
     }
 
     public Product getProductById(@PathVariable(name = "id") String id, HttpServletResponse res) {
